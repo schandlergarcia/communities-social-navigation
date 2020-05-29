@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<WorkDotComSettings xmlns="http://soap.sforce.com/2006/04/metadata">
+    <enableCoachingManagerGroupAccess>false</enableCoachingManagerGroupAccess>
+    <enableGoalManagerGroupAccess>false</enableGoalManagerGroupAccess>
+    <enableProfileSkills>false</enableProfileSkills>
+    <enableProfileSkillsAddFeedPost>false</enableProfileSkillsAddFeedPost>
+    <enableProfileSkillsAutoSuggest>false</enableProfileSkillsAutoSuggest>
+    <enableProfileSkillsUsePlatform>false</enableProfileSkillsUsePlatform>
+    <enableWorkBadgeDefRestrictPref>false</enableWorkBadgeDefRestrictPref>
+    <enableWorkCalibration>false</enableWorkCalibration>
+    <enableWorkCanvasPref>false</enableWorkCanvasPref>
+    <enableWorkCertification>false</enableWorkCertification>
+    <enableWorkCertificationNotification>false</enableWorkCertificationNotification>
+    <enableWorkRewardsPref>false</enableWorkRewardsPref>
+    <enableWorkThanksPref>true</enableWorkThanksPref>
+</WorkDotComSettings>
