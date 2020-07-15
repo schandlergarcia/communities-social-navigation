@@ -1,8 +1,6 @@
 public with sharing class NavigationMenuController {
   @AuraEnabled(Cacheable=true)
-  public static List<NavigationMenuItem> getNavigationMenuItems(
-    String menuName
-  ) {
+  public static List<NavigationMenuItem> getNavigationMenuItems(String menuName) {
     List<NavigationMenuItem> navigationMenuItems = [
       SELECT
         AccessRestriction,
@@ -34,24 +32,13 @@ public with sharing class NavigationMenuController {
   }
 
   @AuraEnabled(Cacheable=true)
-  public static Map<String, Object> getConnectNavigationItems(
-    String menuName,
-    String communityId
-  ) {
+  public static Map<String, Object> getConnectNavigationItems(String menuName, String communityId) {
     String baseUrl = Url.getSalesforceBaseUrl().toExternalForm();
 
     String networkId = Network.getNetworkId();
 
-    List<NavigationLinkSet> navigationLinkSets = [
-      SELECT Id
-      FROM NavigationLinkSet
-      WHERE DeveloperName = :menuName
-      WITH SECURITY_ENFORCED
-      LIMIT 1
-    ];
-    NavigationLinkSet navigationLinkSet = (navigationLinkSets.size() == 1)
-      ? navigationLinkSets.get(0)
-      : null;
+    List<NavigationLinkSet> navigationLinkSets = [SELECT Id FROM NavigationLinkSet WHERE DeveloperName = :menuName WITH SECURITY_ENFORCED LIMIT 1];
+    NavigationLinkSet navigationLinkSet = (navigationLinkSets.size() == 1) ? navigationLinkSets.get(0) : null;
 
     String restAPIURL =
       baseUrl +
@@ -78,9 +65,7 @@ public with sharing class NavigationMenuController {
       HttpResponse httpResponse = http.send(httpRequest);
 
       if (httpResponse.getStatusCode() == 200) {
-        Map<String, Object> response = (Map<String, Object>) JSON.deserializeUntyped(
-          httpResponse.getBody()
-        );
+        Map<String, Object> response = (Map<String, Object>) JSON.deserializeUntyped(httpResponse.getBody());
 
         navigationItems = response;
 

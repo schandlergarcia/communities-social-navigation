@@ -1,5 +1,22 @@
 {
   "orgName": "stephan.garcia company",
   "edition": "Developer",
-  "features": []
+  "release": "Preview",
+  "features": ["CMSUnlimitedUse", "Communities"],
+  "settings": {
+    "communitiesSettings": {
+      "enableNetworksEnabled": true
+    },
+    "lightningExperienceSettings": {
+      "enableS1DesktopEnabled": true
+    },
+    "securitySettings": {
+      "passwordPolicies": {
+        "enableSetPasswordInApi": true
+      }
+    },
+    "mobileSettings": {
+      "enableS1EncryptedStoragePref2": false
+    }
+  }
 }

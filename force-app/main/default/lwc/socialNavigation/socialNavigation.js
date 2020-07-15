@@ -12,9 +12,7 @@ import getConnectNavigationItems from "@salesforce/apex/NavigationMenuController
 // Lightning Navigation Service will allow us to navigate to our target
 import { NavigationMixin } from "lightning/navigation";
 
-export default class SocialNavigation extends NavigationMixin(
-  LightningElement
-) {
+export default class SocialNavigation extends NavigationMixin(LightningElement) {
   @api menuName = "Social_Links";
   @track menuItems = [];
   @api maxWidth = "400"; // Default to 400px
