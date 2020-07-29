@@ -45,7 +45,3 @@ The component consists of the following:
    ```
    sfdx force:org:open
    ```
-
-1. Create a remote site setting
-
-Navigate to Setup > Remote Site Settings > Add a remote site setting for your community url

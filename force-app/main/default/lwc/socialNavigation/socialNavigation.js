@@ -12,9 +12,7 @@ import getConnectNavigationItems from "@salesforce/apex/NavigationMenuController
 // Lightning Navigation Service will allow us to navigate to our target
 import { NavigationMixin } from "lightning/navigation";
 
-export default class SocialNavigation extends NavigationMixin(
-  LightningElement
-) {
+export default class SocialNavigation extends NavigationMixin(LightningElement) {
   @api menuName = "Social_Links";
   @track menuItems = [];
   @api maxWidth = "200"; // Default to 400px
@@ -49,9 +47,7 @@ export default class SocialNavigation extends NavigationMixin(
     let selectedLabel = event.currentTarget.dataset.label;
 
     // Loop through the menu items and get the row of the selected item
-    let item = this.menuItems.filter(
-      menuItem => menuItem.label === selectedLabel
-    )[0];
+    let item = this.menuItems.filter(menuItem => menuItem.label === selectedLabel)[0];
 
     // Distribute the action to the relevant mechanism for navigation
     if (item.urlType === "ExternalLink") {

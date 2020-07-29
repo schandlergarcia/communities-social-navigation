@@ -5,9 +5,7 @@ public with sharing class NavigationMenuController {
    * @return A list of navigation menu items
    */
   @AuraEnabled(Cacheable=true)
-  public static List<NavigationMenuItem> getNavigationMenuItems(
-    String menuName
-  ) {
+  public static List<NavigationMenuItem> getNavigationMenuItems(String menuName) {
     List<NavigationMenuItem> navigationMenuItems = [
       SELECT
         AccessRestriction,
@@ -31,10 +29,7 @@ public with sharing class NavigationMenuController {
   }
 
   @AuraEnabled(Cacheable=true)
-  public static Map<String, Object> getConnectNavigationItems(
-    String menuName,
-    String communityId
-  ) {
+  public static Map<String, Object> getConnectNavigationItems(String menuName, String communityId) {
     String baseUrl = Url.getSalesforceBaseUrl().toExternalForm();
 
     List<NavigationLinkSet> navigationLinkSets = [
@@ -50,15 +45,8 @@ public with sharing class NavigationMenuController {
 
     // USe string formatters to create the callout url
     String restEndpointTemplate = '{0}/services/data/v48.0/connect/communities/{1}/navigation-menu/navigation-menu-items?navigationLinkSetId={2}&includeImageUrl=true&addHomeMenuItem=false';
-    List<Object> parameters = new List<Object>{
-      baseUrl,
-      communityId,
-      navigationLinkSet.Id
-    };
-    String restEndpointFormatted = String.format(
-      restEndpointTemplate,
-      parameters
-    );
+    List<Object> parameters = new List<Object>{ baseUrl, communityId, navigationLinkSet.Id };
+    String restEndpointFormatted = String.format(restEndpointTemplate, parameters);
 
     // Build the HttpRequest
     HttpRequest httpRequest = new HttpRequest();

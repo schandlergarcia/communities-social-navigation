@@ -40,8 +40,15 @@ public with sharing class CommunitiesNavigationMenuController {
 
     String networkId = Network.getNetworkId();
 
-    List<NavigationLinkSet> navigationLinkSets = [SELECT Id FROM NavigationLinkSet WHERE DeveloperName = :menuName LIMIT 1];
-    NavigationLinkSet navigationLinkSet = (navigationLinkSets.size() == 1) ? navigationLinkSets.get(0) : null;
+    List<NavigationLinkSet> navigationLinkSets = [
+      SELECT Id
+      FROM NavigationLinkSet
+      WHERE DeveloperName = :menuName
+      LIMIT 1
+    ];
+    NavigationLinkSet navigationLinkSet = (navigationLinkSets.size() == 1)
+      ? navigationLinkSets.get(0)
+      : null;
 
     String restAPIURL =
       baseUrl +
@@ -70,7 +77,9 @@ public with sharing class CommunitiesNavigationMenuController {
       HttpResponse httpResponse = http.send(httpRequest);
 
       if (httpResponse.getStatusCode() == 200) {
-        Map<String, Object> response = (Map<String, Object>) JSON.deserializeUntyped(httpResponse.getBody());
+        Map<String, Object> response = (Map<String, Object>) JSON.deserializeUntyped(
+          httpResponse.getBody()
+        );
 
         navigationItems = response;
 
