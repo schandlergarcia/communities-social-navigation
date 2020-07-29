@@ -24,14 +24,14 @@ The component consists of the following:
 1. Clone the repository:
 
    ```
-   git clone https://github.com/schandlergarcia/communities-social-navigation
-   cd communities-social-navigation
+   git clone https://github.com/schandlergarcia/lwc-scheduler-service
+   cd lwc-scheduler-service
    ```
 
 1. Create a scratch org and provide it with an alias (**ebikes** in the command below):
 
    ```
-   sfdx force:org:create -s -f config/project-scratch-def.json -a communities-navigation
+   sfdx force:org:create -s -f config/project-scratch-def.json -a lwc-scheduler
    ```
 
 1. Push the app to your scratch org:
