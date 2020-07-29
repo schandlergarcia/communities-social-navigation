@@ -13,17 +13,39 @@ The component consists of the following:
 - Connect API
 - Summer '20 Community Modules
 
-## Installation
+## Installing Communities Social Navigation Menu using a Scratch Org
 
-**Clone this repository and push to your Dreamhouse org**
+1. If you haven't already done so, authorize your hub org and provide it with an alias (**myhuborg** in the command below):
 
-```
-git clone https://github.com/schandlergarcia/code-school-search-lwc
-cd code-school-search-lwc
-sfdx force:source:push -u <dreamhouse org username>
-```
+   ```
+   sfdx force:auth:web:login -d -a myhuborg
+   ```
 
-**Add a remote site setting**
+1. Clone the repository:
 
-1. Navigate to Setup > Remote Site Settings
-2. Add a remote site setting for your community url
+   ```
+   git clone https://github.com/schandlergarcia/communities-social-navigation
+   cd communities-social-navigation
+   ```
+
+1. Create a scratch org and provide it with an alias (**ebikes** in the command below):
+
+   ```
+   sfdx force:org:create -s -f config/project-scratch-def.json -a communities-navigation
+   ```
+
+1. Push the app to your scratch org:
+
+   ```
+   sfdx force:source:push
+   ```
+
+1. Open the scratch org:
+
+   ```
+   sfdx force:org:open
+   ```
+
+1. Create a remote site setting
+
+Navigate to Setup > Remote Site Settings > Add a remote site setting for your community url
