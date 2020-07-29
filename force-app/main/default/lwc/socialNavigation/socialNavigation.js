@@ -12,10 +12,12 @@ import getConnectNavigationItems from "@salesforce/apex/NavigationMenuController
 // Lightning Navigation Service will allow us to navigate to our target
 import { NavigationMixin } from "lightning/navigation";
 
-export default class SocialNavigation extends NavigationMixin(LightningElement) {
+export default class SocialNavigation extends NavigationMixin(
+  LightningElement
+) {
   @api menuName = "Social_Links";
   @track menuItems = [];
-  @api maxWidth = "400"; // Default to 400px
+  @api maxWidth = "200"; // Default to 400px
   communityId = communityId;
   communityBasePath = communityBasePath;
   error;
@@ -45,16 +47,13 @@ export default class SocialNavigation extends NavigationMixin(LightningElement) 
   navigateToItem(event) {
     // Get the menu item's label from the target
     let selectedLabel = event.currentTarget.dataset.label;
-    let item = {};
 
     // Loop through the menu items and get the row of the selected item
-    for (let key in this.menuItems) {
-      if (this.menuItems[key].label === selectedLabel) {
-        item = this.menuItems[key];
-      }
-    }
+    let item = this.menuItems.filter(
+      menuItem => menuItem.label === selectedLabel
+    )[0];
 
-    // Distribute the action to the relevant mechanisim for navigation
+    // Distribute the action to the relevant mechanism for navigation
     if (item.urlType === "ExternalLink") {
       this.navigateToExternalPage(item);
     } else if (item.urlType === "InternalLink") {
@@ -80,9 +79,9 @@ export default class SocialNavigation extends NavigationMixin(LightningElement) 
   // Open an internal link
   navigateToInternalPage(item) {
     const url = this.communityBasePath + item.url;
-    console.log(url);
+    Console.log(url);
     const url2 = this.baseUrl + "/s" + item.url;
-    console.log(url2);
+    Console.log(url2);
 
     this[NavigationMixin.Navigate]({
       type: "standard__webPage",

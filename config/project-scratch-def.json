@@ -1,7 +1,6 @@
 {
   "orgName": "stephan.garcia company",
   "edition": "Developer",
-  "release": "Preview",
   "features": ["CMSUnlimitedUse", "Communities"],
   "settings": {
     "communitiesSettings": {
